@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='stylestu.css')}}">   
+    <style>
+        body {margin:0;}
+        
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+          position: fixed;
+          top: 0;
+          width: 100%;
+        }
+        
+        li {
+          float: left;
+        }
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+              }
+
+        li a:hover:not(.active) {
+             background-color: #111;
+              }
+
+        .active {
+            background-color: #04AA6D;
+               }
+    </style>
+
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-light" style="background-color:green;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('add_student')}}">Add_student</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('login')}}">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </nav>
+    <table border="all"style="border-collapse: collapse; text-align: center;width:100%;">
+        <tr>
+            <th colspan="4">Student details</th>
+            <th colspan="5">Marks</th>
+            <th colspan=2"">Action</th>
+        </tr>
+        <tr>
+            <th>SI.No</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>RollNo</th>
+            <th>Tamil</th>
+            <th>English</th>
+            <th>Maths</th>
+            <th>Science</th>
+            <th>S.Science</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+            {%for i in student %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{i.Name}}</td>
+            <td>{{i.Age}}</td>
+            <td>{{i.RollNo}}</td>
+            {%for j in i.Marks %}
+            <td>{{j}}</td>
+            {%endfor%}
+            <td><a href="{{url_for('edit',index=loop.index)}}">Edit</a></td>
+            <td><a href="{{url_for('delete',index=loop.index)}}">Delete</a></td>
+        </tr>
+        {%endfor%}
+        <tr>
+            {%for k in students%}
+            <td>{{k.Name}}</td>
+            <td>{{k.Age}}</td>
+            <td>{{k.RollNo}}</td>
+            {%for m in k.Marks %}
+            <td>{{m}}</td>
+            {%endfor%}
+            <td><a href="{{url_for('edit',index=loop.index)}}">Edit</a></td>
+            <td><a href="{{url_for('delete',index=loop.index)}}">Delete</a></td>
+
+        </tr>
+        {%endfor%}
+    </table>
+</body>
+</html>

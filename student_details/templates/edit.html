@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+    <title>Edit form</title>
+</head>
+<body>
+    <div class="form">
+        <form class="login-form" method="post">
+            <caption>Edit form</caption>
+          <input type="text" placeholder="Name" name="Name" value="{{student.Name}}" id="Name">
+          <label for="Age">Age</label>
+          <input type="tel" placeholder="Age" name="Age" id="Age" value="{{student.Age}}">
+          <label for="RollNo">RollNo</label>
+          <input type="tel" placeholder="RollNo" name="RollNo" id="RollNo" value="{{student.RollNo}}">
+          <label for="mark1">Name</label>
+          <input type="tel" placeholder="mark1" name="mark1" id="mark1" value="{{student['Marks'][0]}}">
+          <label for="mark2">Name</label>
+          <input type="tel" placeholder="mark1" name="mark2" id="mark2" value="{{student['Marks'][1]}}">
+          <label for="mark3">Name</label>
+          <input type="tel" placeholder="mark1" name="mark3" id="mark3" value="{{student['Marks'][2]}}">
+          <label for="mark4">Name</label>
+          <input type="tel" placeholder="mark1" name="mark4" id="mark4" value="{{student['Marks'][3]}}">
+          <label for="mark5">Name</label>
+          <input type="tel" placeholder="mark1" name="mark5" id="mark5" value="{{student['Marks'][4]}}">
+
+          <button  class="btn" type="submit" href="" value="submit">Submit</button>
+        </form>
+      </div>
+    <!-- <form method="post">
+        <label for="Name">Name</label>
+        <input type="text" name="Name" value="{{student.Name}}">
+        <label for="Age">Age</label>
+        <input type="number" name="Age" value="{{student.Age}}">
+        <label for="RollNo">RollNo</label>
+        <input type="number" name="RollNo" value="{{student.RollNo}}">
+        <label for="mark1">mark1</label>
+        <input type="number" name="mark1" value="{{student['Marks'][0]}}"><br>
+        <label for="mark2">mark2</label>
+        <input type="number" name="mark2" value="{{student['Marks'][1]}}">
+        <label for="mark3">mark3</label>
+        <input type="number" name="mark3" value="{{student['Marks'][2]}}">
+        <label for="mark4">mark4</label>
+        <input type="number" name="mark4" value="{{student['Marks'][3]}}">
+        <label for="mark5">mark5</label>
+        <input type="number" name="mark5" value="{{student['Marks'][4]}}">
+
+        <input type="submit" value="submit"> -->
+<!-- 
+    </form> -->
+</body>
+</html>
